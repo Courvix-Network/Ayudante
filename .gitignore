@@ -1,5 +1,4 @@
 .idea/
-utils/
 test.py
 testimage.jpg
 blacklist.json

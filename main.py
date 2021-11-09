@@ -9,6 +9,7 @@ print(f"[DONE] Loaded Discord version `{discord.version_info}`!")
 print("Fetching data from env file...")
 load_dotenv()
 token = os.getenv("token")
+webhook = os.getenv("webhook")
 try:
     status = os.getenv("status")
     if status:
