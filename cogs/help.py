@@ -6,6 +6,7 @@ import sys
 import random
 import requests
 from datetime import datetime
+from main import bot_webhook
 from utils.vars import *
 
 
@@ -162,7 +163,7 @@ class Help(commands.Cog):
                     "title": "Detailed traceback"
                 }
             ]
-            requests.post(webhook_error_url, json=data)
+            requests.post(bot_webhook, json=data)
             print(f'In {ctx.command.qualified_name}:', file=sys.stderr)
             print(
                 f'{error.original.__class__.__name__}: {error.original}', file=sys.stderr)

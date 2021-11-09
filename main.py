@@ -9,7 +9,7 @@ print(f"[DONE] Loaded Discord version `{discord.version_info}`!")
 print("Fetching data from env file...")
 load_dotenv()
 token = os.getenv("token")
-webhook = os.getenv("webhook")
+bot_webhook = os.getenv("webhook")
 try:
     status = os.getenv("status")
     if status:
@@ -18,8 +18,8 @@ try:
         print(f"[-] No status set, so booting without it")
 except:
     print("[!] Tried to get status from .env file, failed")
-if not token:
-    print("Please give a token in your .env!")
+if not token or not bot_webhook:
+    print("Please give a token and a webhook in your .env!")
     sys.exit(1)
 print("Done! Loaded data from token.")
 print("Loading intents & config...")
