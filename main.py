@@ -10,6 +10,7 @@ print("Fetching data from env file...")
 load_dotenv()
 token = os.getenv("token")
 bot_webhook = os.getenv("webhook")
+request_key = os.getenv("key")
 try:
     status = os.getenv("status")
     if status:

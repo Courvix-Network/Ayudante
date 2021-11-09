@@ -2,6 +2,7 @@ import discord
 import requests
 from discord.ext import commands
 from utils.vars import *
+from main import request_key
 
 
 class Translate(commands.Cog):
@@ -27,7 +28,7 @@ class Translate(commands.Cog):
                 else:
                     await ctx.send("⚠ ️Please supply the text you would like to translate!")
                     return None
-            request = requests.post("https://api.courvix.com/text/translate", {'target': language_to, 'text': text}, headers={"Key": "RnNuKM6vRtLUWElC"})
+            request = requests.post("https://api.courvix.com/text/translate", {'target': language_to, 'text': text}, headers={"Key": request_key})
             if request.status_code is 200:
                 if len(request.json()["response"]) > 255: # too long? set to desc instead of title
                     translate = discord.Embed(description=request.json()["response"], color=chill_embed_color)
